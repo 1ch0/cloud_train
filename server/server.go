@@ -9,7 +9,9 @@ import (
 func main() {
 	http.HandleFunc("/", myHandler)
 	http.HandleFunc("/healthz", func(w http.ResponseWriter, r *http.Request) {
-		w.WriteHeader(200)
+		w.Header().Set("Content-type", "application/json")
+		w.WriteHeader(http.StatusOK)
+		_, _ = w.Write([]byte(`{"status": "ok"}`))
 	})
 	http.ListenAndServe(":8080", nil)
 }
