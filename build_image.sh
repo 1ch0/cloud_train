@@ -12,7 +12,7 @@
 # docker image build -t nginx:${TAG} ./
 
 images=(
-    '1ch0/test:httpserverv0.0.1'
+    '1ch0/test:httpserverv0.1.0'
 )
 for image in ${images[@]}; do
     docker build -t "$image" .
